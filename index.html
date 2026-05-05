@@ -1,13 +1,366 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo pagina web basica</title>
-    <h1>Ejercicio de Roberto</h1>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mantenimiento de Sistemas Informáticos</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    //*En esta parte se coloca todo lo que va a contener la pagina web
-    <p>Este es mi segundo repositorio con este archivo modificado </p>
+
+  <!-- aqui personalice un cursos con forma de anillo que siguiera los movimientos del mouse -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-anillo"></div>
+
+       <!-- esta es la pantalla de inicio -->
+  <div id="intro">
+    <div class="intro-contenido">
+      <span class="intro-icono">🖥️</span>
+      <h1 class="intro-titulo">SISTEMAS<br>INFORMÁTICOS</h1>
+      <p class="intro-subtitulo">Mantenimiento & Aseguramiento</p>
+      <div class="intro-linea"></div>
+      <button class="btn-ingresar" id="btn-ingresar">
+        <span>✦ Ingresar ✦</span>
+      </button>
+    </div>
+  </div>
+
+  <!--Este es el contenido principal -->
+  <div id="contenido-principal">
+    <div class="fondo-degradado">
+
+      <!-- esta seria la navegación>
+      <nav>
+        <div class="nav-logo">🖥️ SISTEMAS INFORMÁTICOS</div>
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#mantenimiento">Mantenimiento</a></li>
+          <li><a href="#tipos">Tipos</a></li>
+          <li><a href="#aseguramiento">Aseguramiento</a></li>
+          <li><a href="#seguridad">Seguridad</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- ── Sección de inicio ── -->
+      <section class="hero" id="inicio">
+        <span class="hero-badge">✦ Operación y Continuidad del Sistema ✦</span>
+        <h1>
+          Mantenimiento &<br />
+          <span id="typewriter">Aseguramiento</span>
+        </h1>
+        <p>
+          El mantenimiento y aseguramiento de los sistemas informáticos garantiza
+          la disponibilidad, integridad y continuidad operativa de todos los recursos
+          tecnológicos de una organización.
+        </p>
+        <div class="hero-botones">
+          <button class="btn-primario" onclick="document.getElementById('mantenimiento').scrollIntoView({behavior:'smooth'})">Explorar contenido</button>
+          <button class="btn-secundario" onclick="document.getElementById('aseguramiento').scrollIntoView({behavior:'smooth'})">Ver aseguramiento</button>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 1 — aca inicia formulando la pregunta: ¿Qué es el mantenimiento? -->
+      <section id="mantenimiento">
+        <div class="seccion">
+          <p class="seccion-subtitulo">✦ Fundamentos</p>
+          <h2 class="seccion-titulo">¿Qué es el Mantenimiento Informático?</h2>
+
+          <div class="texto-bloque">
+            <p>
+              El <strong>mantenimiento de sistemas informáticos</strong> es el conjunto de
+              actividades técnicas y administrativas orientadas a preservar el correcto
+              funcionamiento del hardware, software e infraestructura de red de una
+              organización. Su objetivo principal es garantizar que los sistemas operen
+              con eficiencia, seguridad y sin interrupciones que afecten la productividad.
+            </p>
+            <p>
+              Un sistema informático bien mantenido reduce los tiempos de inactividad,
+              prolonga la vida útil de los equipos, protege la información y minimiza
+              los costos asociados a fallas imprevistas. El mantenimiento no es un gasto,
+              es una <strong>inversión estratégica</strong> para la continuidad del negocio.
+            </p>
+          </div>
+
+          <div class="tarjetas-grid" style="margin-top: 3rem;">
+            <div class="tarjeta">
+              <span class="tarjeta-icono">⚙️</span>
+              <h3>Hardware</h3>
+              <p>Revisión física de equipos: limpieza de componentes, reemplazo de piezas desgastadas, revisión de conexiones y actualización de dispositivos obsoletos.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">💾</span>
+              <h3>Software</h3>
+              <p>Actualización de sistemas operativos, aplicaciones y controladores. Eliminación de software malicioso y optimización del rendimiento del sistema.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🌐</span>
+              <h3>Redes</h3>
+              <p>Monitoreo y mantenimiento de la infraestructura de red: routers, switches, cableado estructurado y configuración de firewalls y protocolos de seguridad.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="separador">· · · ✦ · · ·</div>
+
+           SECCIÓN 2 — Tipos de mantenimiento
+      <section id="tipos">
+        <div class="seccion">
+          <p class="seccion-subtitulo">✦ Clasificación</p>
+          <h2 class="seccion-titulo">Tipos de Mantenimiento</h2>
+
+          <div class="tarjetas-grid">
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🔍</span>
+              <h3>Preventivo</h3>
+              <p>Se realiza de forma programada antes de que ocurra una falla. Incluye revisiones periódicas, limpieza de equipos, actualizaciones de software y copias de seguridad regulares. Reduce drásticamente el riesgo de fallos inesperados.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🔧</span>
+              <h3>Correctivo</h3>
+              <p>Se ejecuta una vez que se detecta una falla o avería en el sistema. Su objetivo es restablecer el funcionamiento normal lo antes posible, minimizando el impacto en las operaciones de la organización.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">📈</span>
+              <h3>Predictivo</h3>
+              <p>Utiliza herramientas de monitoreo y análisis de datos para anticipar posibles fallas antes de que ocurran, basándose en indicadores de rendimiento y estadísticas del sistema en tiempo real.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🚀</span>
+              <h3>Evolutivo</h3>
+              <p>Consiste en actualizar y mejorar los sistemas para adaptarlos a nuevas necesidades tecnológicas o del negocio, incorporando nuevas funcionalidades sin afectar la estabilidad del entorno operativo.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">⚡</span>
+              <h3>De Emergencia</h3>
+              <p>Intervención inmediata ante fallos críticos que afectan gravemente la operación. Requiere protocolos claros de respuesta y equipos técnicos disponibles 24/7 para minimizar el tiempo de inactividad.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">📋</span>
+              <h3>Adaptativo</h3>
+              <p>Modificaciones realizadas para que el sistema funcione correctamente en un nuevo entorno o con nuevos recursos, como cambios en el sistema operativo, base de datos o plataforma de hardware.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="separador">· · · ✦ · · ·</div>
+
+      <!--SECCIÓN 3 — Aseguramiento de la operación -->
+      <section id="aseguramiento">
+        <div class="seccion">
+          <p class="seccion-subtitulo">✦ Continuidad Operativa</p>
+          <h2 class="seccion-titulo">Aseguramiento de la Operación</h2>
+
+          <div class="texto-bloque">
+            <p>
+              El <strong>aseguramiento de la operación del sistema informático</strong> engloba
+              todas las prácticas, políticas y procedimientos que garantizan que los sistemas
+              funcionen de manera continua, confiable y segura. Va más allá del mantenimiento
+              técnico: implica planificación estratégica, gestión de riesgos y cumplimiento
+              de estándares internacionales.
+            </p>
+          </div>
+
+          <div class="tarjetas-grid" style="margin-top:3rem;">
+            <div class="tarjeta">
+              <span class="tarjeta-icono">📊</span>
+              <h3>Monitoreo Continuo</h3>
+              <p>Supervisión permanente del rendimiento del sistema mediante herramientas especializadas que alertan sobre anomalías, cuellos de botella o comportamientos inusuales antes de que se conviertan en problemas graves.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">💿</span>
+              <h3>Respaldo de Datos (Backup)</h3>
+              <p>Implementación de políticas de copias de seguridad automatizadas, con almacenamiento en múltiples ubicaciones (local y nube) para garantizar la recuperación de la información ante cualquier incidente.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🔄</span>
+              <h3>Plan de Recuperación</h3>
+              <p>Definición de procedimientos claros (DRP - Disaster Recovery Plan) para restaurar los sistemas en el menor tiempo posible ante desastres naturales, ciberataques o fallos críticos de infraestructura.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">📝</span>
+              <h3>Documentación Técnica</h3>
+              <p>Registro detallado de configuraciones, procedimientos, incidentes y soluciones. La documentación es esencial para garantizar la continuidad operativa ante cambios de personal técnico.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🧪</span>
+              <h3>Pruebas y Auditorías</h3>
+              <p>Realización periódica de pruebas de estrés, auditorías de seguridad y simulacros de recuperación para verificar que los sistemas y los planes de contingencia funcionan correctamente.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">👥</span>
+              <h3>Gestión de Usuarios</h3>
+              <p>Control y administración de cuentas de usuario, permisos de acceso y roles dentro del sistema, asegurando que cada persona tenga únicamente los privilegios necesarios para su función.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="separador">· · · ✦ · · ·</div>
+
+      <!--SECCIÓN 4 — Seguridad informática-->
+      <section id="seguridad">
+        <div class="seccion">
+          <p class="seccion-subtitulo">✦ Protección del Sistema</p>
+          <h2 class="seccion-titulo">Seguridad Informática</h2>
+
+          <div class="texto-bloque">
+            <p>
+              La seguridad es un pilar fundamental del aseguramiento operativo. Proteger
+              los sistemas informáticos implica salvaguardar la <strong>confidencialidad</strong>,
+              <strong>integridad</strong> y <strong>disponibilidad</strong> de la información
+              (triada CIA), mediante medidas técnicas y organizativas adecuadas.
+            </p>
+          </div>
+
+          <div class="tarjetas-grid" style="margin-top:3rem;">
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🔒</span>
+              <h3>Confidencialidad</h3>
+              <p>Solo las personas autorizadas pueden acceder a la información. Se implementa mediante cifrado de datos, autenticación multifactor y control de acceso basado en roles (RBAC).</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">✅</span>
+              <h3>Integridad</h3>
+              <p>La información no puede ser alterada sin autorización. Se garantiza mediante sumas de verificación, firmas digitales y registros de auditoría que detectan cualquier modificación no autorizada.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🌍</span>
+              <h3>Disponibilidad</h3>
+              <p>El sistema debe estar accesible cuando se necesite. Se asegura mediante redundancia de servidores, balanceo de carga, UPS (sistemas de alimentación ininterrumpida) y planes de contingencia.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🛡️</span>
+              <h3>Antivirus y Antimalware</h3>
+              <p>Herramientas de protección activa que detectan, bloquean y eliminan amenazas como virus, ransomware, spyware y otros programas maliciosos que comprometan la operación del sistema.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🔥</span>
+              <h3>Firewall y DMZ</h3>
+              <p>Barreras de seguridad perimetral que controlan el tráfico de red entrante y saliente, protegiendo los recursos internos de accesos no autorizados desde redes externas o internet.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🎓</span>
+              <h3>Capacitación del Personal</h3>
+              <p>El factor humano es clave en la seguridad. Formar a los usuarios sobre buenas prácticas, ingeniería social y manejo seguro de la información reduce significativamente los incidentes de seguridad.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="separador">· · · ✦ · · ·</div>
+
+<!--SECCIÓN 5 — Estándares y normas-->
+      <section id="normas">
+        <div class="seccion">
+          <p class="seccion-subtitulo">✦ Estándares Internacionales</p>
+          <h2 class="seccion-titulo">Normas y Marcos de Referencia</h2>
+          <div class="tarjetas-grid" style="margin-top:3rem;">
+            <div class="tarjeta">
+              <span class="tarjeta-icono">📜</span>
+              <h3>ISO/IEC 27001</h3>
+              <p>Estándar internacional para la gestión de la seguridad de la información. Define los requisitos para establecer, implementar y mantener un sistema de gestión de seguridad (SGSI).</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🗂️</span>
+              <h3>ITIL v4</h3>
+              <p>Marco de mejores prácticas para la gestión de servicios de TI. Incluye procesos para la gestión de incidentes, cambios, problemas y la continuidad del servicio informático.</p>
+            </div>
+            <div class="tarjeta">
+              <span class="tarjeta-icono">🏛️</span>
+              <h3>COBIT 2019</h3>
+              <p>Marco de gobierno y gestión de TI empresarial que ayuda a las organizaciones a alcanzar sus objetivos de negocio mediante un uso eficaz y eficiente de la tecnología de la información.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="separador">· · · ✦ · · ·</div>
+
+      <!-- ──este es el contacto ── -->
+      <section id="contacto">
+        <div class="seccion">
+          <p class="seccion-subtitulo">✦ ¿Tienes dudas?</p>
+          <h2 class="seccion-titulo">Contacto</h2>
+          <p style="color: var(--verde-suave); margin-top: 1.5rem; margin-bottom: 3rem; max-width: 550px; line-height: 1.8; font-weight: 300;">
+            Si tienes preguntas sobre mantenimiento o aseguramiento de sistemas informáticos,
+            llena el formulario y me pondré en contacto contigo lo mas pronto posible.
+          </p>
+
+          <div class="contacto-grid">
+
+            <!-- este es el formulario -->
+            <div class="formulario-contenedor">
+              <div class="campo-grupo">
+                <label class="campo-label" for="nombre">👤 Nombre completo</label>
+                <input class="campo-input" type="text" id="nombre" placeholder="Tu nombre..." />
+              </div>
+              <div class="campo-grupo">
+                <label class="campo-label" for="email">📧 Correo electrónico</label>
+                <input class="campo-input" type="email" id="email" placeholder="correo@ejemplo.com" />
+              </div>
+              <div class="campo-grupo">
+                <label class="campo-label" for="asunto">📌 Asunto</label>
+                <input class="campo-input" type="text" id="asunto" placeholder="¿En qué puedo ayudarte?" />
+              </div>
+              <div class="campo-grupo">
+                <label class="campo-label" for="mensaje">💬 Mensaje</label>
+                <textarea class="campo-input campo-textarea" id="mensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
+              </div>
+              <button class="btn-primario btn-enviar" id="btn-enviar" onclick="enviarFormulario()">
+                ✦ Enviar mensaje
+              </button>
+              <div class="mensaje-exito" id="mensaje-exito">
+                ✅ ¡Mensaje enviado correctamente! Me pondré en contacto pronto.
+              </div>
+            </div>
+
+            <!--esta seria la parte de info de contacto -->
+            <div class="contacto-info">
+              <div class="info-item">
+                <span class="info-icono">📍</span>
+                <div>
+                  <h4>Ubicación</h4>
+                  <p>El Salvador</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icono">📧</span>
+                <div>
+                  <h4>Correo</h4>
+                  <p>sistemas67@ejemplo.com</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icono">📞</span>
+                <div>
+                  <h4>Teléfono</h4>
+                  <p>+503 7569-5055</p>
+                </div>s
+              </div>
+              <div class="info-item">
+                <span class="info-icono">🕐</span>
+                <div>
+                  <h4>Horario</h4>
+                  <p>Lunes a Viernes, 8:00 – 17:00</p
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- este seria el pie de página -->
+      <footer>
+        <p>© 2026 &nbsp;·&nbsp; Mantenimiento de Sistemas Informáticos &nbsp;·&nbsp; Hecho con una laptop del gobierno para la tarea del modulo 3.2 🖥️</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

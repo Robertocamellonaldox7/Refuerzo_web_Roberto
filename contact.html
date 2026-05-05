@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contactame!</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Este es el contact.html */
+
+    .contacto-hero {
+      min-height: 38vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .contacto-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--blanco);
+      opacity: 0;
+      animation: fadeInUp 0.8s ease 0.3s forwards;
+    }
+
+    .contacto-hero h1 span {
+      color: var(--verde-acento);
+    }
+
+    .contacto-hero p {
+      margin-top: 1rem;
+      max-width: 520px;
+      color: var(--verde-suave);
+      font-size: 1rem;
+      line-height: 1.8;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease 0.5s forwards;
+    }
+
+    /* primer paso */
+    .contact-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 4rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 3rem;
+      align-items: start;
+      opacity: 0;
+      animation: fadeInUp 0.9s ease 0.7s forwards;
+    }
+
+    /* ── este es el formulario de contacto ── */
+    .form-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(92,214,92,0.15);
+      border-radius: 6px;
+      padding: 2.5rem;
+    }
+
+    .form-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--verde-acento);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-card p.subtitulo {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--verde-suave);
+      opacity: 0.6;
+      margin-bottom: 2rem;
+    }
+
+    .campo-grupo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .campo-label {
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--verde-acento);
+      font-weight: 600;
+    }
+
+    .campo-input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(92,214,92,0.2);
+      border-radius: 3px;
+      padding: 0.85rem 1.1rem;
+      color: var(--blanco);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      outline: none;
+      transition: all 0.35s ease;
+      width: 100%;
+    }
+
+    .campo-input::placeholder { color: rgba(200,240,200,0.28); }
+
+    .campo-input:focus {
+      border-color: var(--verde-acento);
+      background: rgba(92,214,92,0.06);
+      box-shadow: 0 0 0 3px rgba(92,214,92,0.1);
+    }
+
+    .campo-input.error {
+      border-color: #e05c5c;
+      box-shadow: 0 0 0 3px rgba(224,92,92,0.15);
+    }
+
+    .campo-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .fila-dos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .btn-enviar {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      background: linear-gradient(135deg, var(--verde-brillante), var(--verde-acento));
+      color: var(--verde-oscuro);
+      border: none;
+      border-radius: 3px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      box-shadow: 0 4px 20px rgba(92,214,92,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-enviar:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(92,214,92,0.5);
+    }
+
+    .btn-enviar:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .alerta {
+      display: none;
+      padding: 0.9rem 1.2rem;
+      border-radius: 3px;
+      font-size: 0.88rem;
+      margin-top: 1rem;
+      animation: fadeInUp 0.4s ease forwards;
+    }
+
+    .alerta.exito {
+      display: block;
+      background: rgba(92,214,92,0.1);
+      border: 1px solid rgba(92,214,92,0.4);
+      color: var(--verde-acento);
+    }
+
+    .alerta.error-msg {
+      display: block;
+      background: rgba(224,92,92,0.08);
+      border: 1px solid rgba(224,92,92,0.35);
+      color: #e08080;
+    }
+
+    /* panel de informacion  */
+    .info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(92,214,92,0.12);
+      border-radius: 6px;
+      padding: 1.8rem;
+      transition: all 0.35s ease;
+    }
+
+    .info-card:hover {
+      border-color: rgba(92,214,92,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .info-card-icono {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .info-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--verde-acento);
+      margin-bottom: 0.4rem;
+    }
+
+    .info-card p {
+      font-size: 0.88rem;
+      color: var(--verde-suave);
+      opacity: 0.75;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .redes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .red-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid rgba(92,214,92,0.2);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--verde-suave);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .red-btn:hover {
+      border-color: var(--verde-acento);
+      color: var(--verde-acento);
+      background: rgba(92,214,92,0.06);
+    }
+
+    /* esta es una seccion para volver */
+    .btn-volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--verde-suave);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+      margin: 0 4rem 0;
+      padding-top: 1.5rem;
+      display: block;
+    }
+
+    .btn-volver:hover {
+      opacity: 1;
+      color: var(--verde-acento);
+      letter-spacing: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem 4rem;
+      }
+      .fila-dos { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <! este seria el cursor>
+  <div class="cursor-dot"></div>
+  <div class="cursor-anillo"></div>
+
+  <div class="fondo-degradado" style="min-height:100vh;">
+
+    <! esta es la parte de la navegación y el logo>
+    <nav>
+      <div class="nav-logo">🖥️ SISTEMAS INFORMÁTICOS</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#mantenimiento">Mantenimiento</a></li>
+        <li><a href="index.html#tipos">Tipos</a></li>
+        <li><a href="index.html#aseguramiento">Aseguramiento</a></li>
+        <li><a href="index.html#seguridad">Seguridad</a></li>
+        <li><a href="contact.html" style="color:var(--verde-acento);">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- contacto -->
+    <div class="contacto-hero">
+      <span class="hero-badge">✦ Consulta aqui!✦</span>
+      <h1>Página de <span>Contacto</span></h1>
+      <p>
+        ¿Tienes dudas sobre mantenimiento o aseguramiento de sistemas?
+        Escríbeme y te respondere lo mas rapido posible!
+      </p>
+    </div>
+
+    <!-- Este es el boton para volver -->
+    <a href="index.html" class="btn-volver">← Volver al inicio</a>
+
+    <!-- este es el contenido principal -->
+    <div class="contact-wrapper">
+
+      <!-- ── este es el formulario ── -->
+      <div class="form-card">
+        <h2>Envíanos un mensaje</h2>
+        <p class="subtitulo">✦ Todos los campos son obligatorios</p>
+
+        <div class="fila-dos">
+          <div class="campo-grupo">
+            <label class="campo-label" for="nombre">👤 Nombre</label>
+            <input class="campo-input" type="text" id="nombre" placeholder="Tu nombre" />
+          </div>
+          <div class="campo-grupo">
+            <label class="campo-label" for="apellido">👤 Apellido</label>
+            <input class="campo-input" type="text" id="apellido" placeholder="Tu apellido" />
+          </div>
+        </div>
+
+        <div class="fila-dos">
+          <div class="campo-grupo">
+            <label class="campo-label" for="email">📧 Correo</label>
+            <input class="campo-input" type="email" id="email" placeholder="correo@ejemplo.com" />
+          </div>
+          <div class="campo-grupo">
+            <label class="campo-label" for="telefono">📞 Teléfono</label>
+            <input class="campo-input" type="tel" id="telefono" placeholder="+503 0000-0000" />
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label class="campo-label" for="asunto">📌 Asunto</label>
+          <input class="campo-input" type="text" id="asunto" placeholder="¿En qué podemos ayudarte?" />
+        </div>
+
+        <div class="campo-grupo">
+          <label class="campo-label" for="tipo">🗂️ Tipo de consulta</label>
+          <select class="campo-input" id="tipo">
+            <option value="" disabled selected style="color:#555;">Selecciona una opción...</option>
+            <option value="mantenimiento">Mantenimiento de sistemas</option>
+            <option value="seguridad">Seguridad informática</option>
+            <option value="aseguramiento">Aseguramiento operativo</option>
+            <option value="redes">Redes e infraestructura</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="campo-grupo">
+          <label class="campo-label" for="mensaje">💬 Mensaje</label>
+          <textarea class="campo-input campo-textarea" id="mensaje" placeholder="Escribe tu mensaje detallado aquí..."></textarea>
+        </div>
+
+        <button class="btn-enviar" id="btn-enviar" onclick="enviarContacto()">
+          ✦ Enviar mensaje
+        </button>
+
+        <div class="alerta" id="alerta-exito">
+          ✅ ¡Mensaje enviado correctamente! Te responderé lo antes posible.
+        </div>
+        <div class="alerta error-msg" id="alerta-error">
+          ⚠️ Por favor completa todos los campos antes de enviar 67
+        </div>
+      </div>
+
+      <!-- ── este es el panel lateral ── -->
+      <div class="info-panel">
+
+        <div class="info-card">
+          <span class="info-card-icono">📍</span>
+          <h4>Ubicación</h4>
+          <p>El Salvador, Centro América<br/>San Salvador, SS</p>
+        </div>
+
+        <div class="info-card">
+          <span class="info-card-icono">📧</span>
+          <h4>Correo electrónico</h4>
+          <p>sistemas@ejemplo.com<br/>soporte@ejemplo.com</p>
+        </div>
+
+        <div class="info-card">
+          <span class="info-card-icono">📞</span>
+          <h4>Teléfono / WhatsApp</h4>
+          <p>+503 0000-0000<br/>Disponible de 8:00 a 17:00</p>
+        </div>
+
+        <div class="info-card">
+          <span class="info-card-icono">🕐</span>
+          <h4>Horario de atención</h4>
+          <p>Lunes a Viernes<br/>8:00 AM — 5:00 PM</p>
+        </div>
+
+        <div class="info-card">
+          <span class="info-card-icono">🌐</span>
+          <h4>Redes sociales</h4>
+          <div class="redes-grid">
+            <a href="#" class="red-btn">💼 LinkedIn</a>
+            <a href="#" class="red-btn">🐦 Twitter</a>
+            <a href="#" class="red-btn">📘 Facebook</a>
+            <a href="#" class="red-btn">📸 Instagram</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- este es el pie de página -->
+    <footer>
+      <p>© 2026 &nbsp;·&nbsp; Mantenimiento de Sistemas Informáticos &nbsp;·&nbsp; Hecho con una laptop para la tarea del modulo 3.2</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function enviarContacto() {
+      const campos = ['nombre','apellido','email','telefono','asunto','tipo','mensaje'];
+      const alertaExito = document.getElementById('alerta-exito');
+      const alertaError = document.getElementById('alerta-error');
+      const btn = document.getElementById('btn-enviar');
+      let valido = true;
+
+      alertaExito.className = 'alerta';
+      alertaError.className = 'alerta';
+
+      campos.forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.remove('error');
+        if (!el.value.trim()) {
+          el.classList.add('error');
+          valido = false;
+        }
+      });
+
+      if (!valido) {
+        alertaError.className = 'alerta error-msg';
+        return;
+      }
+
+      btn.textContent = '⏳ Enviando...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.textContent = '✦ Enviar mensaje';
+        btn.disabled = false;
+        campos.forEach(id => {
+          const el = document.getElementById(id);
+          el.value = '';
+          el.classList.remove('error');
+        });
+        alertaExito.className = 'alerta exito';
+        setTimeout(() => { alertaExito.className = 'alerta'; }, 5000);
+      }, 1800);
+    }
+  </script>
+</body>
+</html>
